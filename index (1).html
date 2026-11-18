@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Histórias e Vivências de Motoristas em São Paulo</title>
+<meta name="description" content="Videodocumentário sobre a vida e os lugares especiais de motoristas que passam o dia dirigindo por São Paulo.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Newsreader:opsz,wght@6..72,400;6..72,500&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+<style>
+:root {
+  --asfalto: #2B2E33;
+  --asfalto-2: #363A40;
+  --concreto: #E4E6E9;
+  --branco: #F7F8F9;
+  --sodio: #F2A93B;
+  --taximetro: #E0352B;
+  --texto: #23262A;
+  --texto-suave: #5A5F66;
+  --linha: #C3C7CD;
+  --superficie: var(--branco);
+  --fundo: var(--concreto);
+  color-scheme: light;
+  box-sizing: border-box;
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --texto: #ECEDEF;
+    --texto-suave: #A9AEB5;
+    --linha: #4A4F56;
+    --superficie: #31353B;
+    --fundo: #24272B;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --texto: #ECEDEF;
+  --texto-suave: #A9AEB5;
+  --linha: #4A4F56;
+  --superficie: #31353B;
+  --fundo: #24272B;
+  color-scheme: dark;
+}
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-padding-top: env(safe-area-inset-top, 0px); }
+body {
+  margin: 0;
+  background: var(--fundo);
+  color: var(--texto);
+  font-family: "Newsreader", Georgia, "Times New Roman", serif;
+  font-size: 1.1875rem;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+img, iframe { max-width: 100%; }
+a { color: inherit; }
+:focus-visible { outline: 3px solid var(--sodio); outline-offset: 3px; }
+
+/* ---------- Abertura: o para-brisa à noite ---------- */
+.abertura {
+  background: var(--asfalto);
+  color: var(--branco);
+  position: relative;
+  overflow: hidden;
+}
+.abertura::after {
+  /* faixa de luz de poste passando pelo vidro */
+  content: "";
+  position: absolute;
+  inset: -40% -10% auto auto;
+  width: 60%;
+  height: 180%;
+  background: radial-gradient(closest-side, rgba(242,169,59,.22), rgba(242,169,59,0));
+  transform: rotate(18deg);
+  pointer-events: none;
+}
+.abertura-inner {
+  max-width: 68rem;
+  margin: 0 auto;
+  padding: clamp(2.5rem, 7vw, 5.5rem) clamp(1.25rem, 5vw, 3rem) clamp(2.5rem, 6vw, 4.5rem);
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 2.5rem;
+  align-items: end;
+  position: relative;
+  z-index: 1;
+}
+.instituicao {
+  font-family: "Archivo", "Helvetica Neue", Arial, sans-serif;
+  font-size: .9375rem;
+  color: #B9BEC5;
+  margin: 0 0 1.75rem;
+  letter-spacing: .01em;
+}
+h1 {
+  font-family: "Archivo", "Helvetica Neue", Arial, sans-serif;
+  font-stretch: 68%;
+  font-weight: 800;
+  font-size: clamp(2.75rem, 8.5vw, 6.25rem);
+  line-height: .94;
+  letter-spacing: -.01em;
+  margin: 0;
+  max-width: 13ch;
+}
+.subtitulo {
+  font-size: clamp(1.15rem, 2.2vw, 1.4rem);
+  color: #D7DADF;
+  margin: 1.5rem 0 0;
+  max-width: 34ch;
+  line-height: 1.45;
+}
+
+/* o elemento marcante: o taxímetro */
+.taximetro {
+  background: #1C1E21;
+  border: 1px solid #4A4F56;
+  border-radius: 6px;
+  padding: .9rem 1.1rem 1rem;
+  min-width: 13.5rem;
+  box-shadow: inset 0 0 0 4px #24272B;
+}
+.taximetro-visor {
+  font-family: "Share Tech Mono", ui-monospace, "Courier New", monospace;
+  color: var(--taximetro);
+  text-shadow: 0 0 8px rgba(224,53,43,.55);
+  font-size: 2.6rem;
+  line-height: 1;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+.taximetro-legenda {
+  display: flex;
+  justify-content: space-between;
+  font-family: "Archivo", Arial, sans-serif;
+  font-size: .75rem;
+  color: #8E949B;
+  margin-top: .6rem;
+}
+.taximetro-legenda .ligado { color: var(--sodio); }
+
+/* ---------- Conteúdo ---------- */
+main {
+  max-width: 68rem;
+  margin: 0 auto;
+  padding: clamp(2rem, 5vw, 3.5rem) clamp(1.25rem, 5vw, 3rem) 4rem;
+}
+.tela {
+  aspect-ratio: 16 / 9;
+  width: 100%;
+  background: var(--asfalto-2);
+  border-radius: 4px;
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+  color: #D7DADF;
+  text-align: center;
+  margin-top: calc(-1 * clamp(1rem, 3vw, 2rem));
+  position: relative;
+  box-shadow: 0 18px 40px -24px rgba(0,0,0,.6);
+}
+.tela iframe { width: 100%; height: 100%; border: 0; display: block; }
+.tela-aviso { padding: 1.5rem; max-width: 30rem; }
+.tela-aviso p { margin: 0; font-size: 1.05rem; }
+.tela-aviso strong {
+  display: block;
+  font-family: "Archivo", Arial, sans-serif;
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: var(--branco);
+  margin-bottom: .35rem;
+}
+.acoes { margin: 1.25rem 0 0; display: flex; flex-wrap: wrap; gap: .75rem; align-items: center; }
+.botao {
+  font-family: "Archivo", Arial, sans-serif;
+  font-weight: 700;
+  font-size: 1rem;
+  text-decoration: none;
+  background: var(--sodio);
+  color: #2B2E33;
+  padding: .8rem 1.25rem;
+  border-radius: 3px;
+  display: inline-block;
+}
+.botao:hover { background: #F6BB5E; }
+.acoes small { color: var(--texto-suave); font-size: .95rem; }
+
+.colunas {
+  display: grid;
+  grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr);
+  gap: clamp(2rem, 5vw, 4.5rem);
+  margin-top: clamp(2.5rem, 6vw, 4.5rem);
+}
+h2 {
+  font-family: "Archivo", "Helvetica Neue", Arial, sans-serif;
+  font-stretch: 80%;
+  font-weight: 750;
+  font-size: 1.6rem;
+  line-height: 1.15;
+  margin: 0 0 1rem;
+}
+.sinopse p { margin: 0 0 1.1rem; max-width: 62ch; }
+.sinopse p:first-of-type { font-size: 1.3rem; line-height: 1.5; }
+
+.ficha {
+  background: var(--superficie);
+  border-top: 4px solid var(--taximetro);
+  padding: 1.5rem 1.5rem .75rem;
+  align-self: start;
+}
+.ficha dl { margin: 0; }
+.ficha dt {
+  font-family: "Archivo", Arial, sans-serif;
+  font-size: .875rem;
+  color: var(--texto-suave);
+  margin: 0;
+}
+.ficha dd { margin: 0 0 1rem; font-size: 1.05rem; line-height: 1.4; }
+
+footer {
+  border-top: 1px solid var(--linha);
+  max-width: 68rem;
+  margin: 0 auto;
+  padding: 1.5rem clamp(1.25rem, 5vw, 3rem) 2.5rem;
+  font-family: "Archivo", Arial, sans-serif;
+  font-size: .875rem;
+  color: var(--texto-suave);
+}
+footer p { margin: 0; max-width: 70ch; }
+
+@media (max-width: 760px) {
+  .abertura-inner { grid-template-columns: 1fr; align-items: start; }
+  .taximetro { justify-self: start; }
+  .colunas { grid-template-columns: 1fr; }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .taximetro-visor .dois-pontos { animation: pisca 1s steps(1) infinite; }
+  @keyframes pisca { 50% { opacity: 0; } }
+}
+</style>
+</head>
+<body>
+
+<header class="abertura">
+  <div class="abertura-inner">
+    <div>
+      <p class="instituicao">Trabalho de Conclusão de Curso em Jornalismo, Universidade Presbiteriana Mackenzie, 2026</p>
+      <h1>Histórias e Vivências de Motoristas em São Paulo</h1>
+      <p class="subtitulo">Um documentário sobre a vida e lugares especiais de pessoas comuns que passam o dia dirigindo pela capital paulistana.</p>
+    </div>
+    <div class="taximetro" aria-hidden="true">
+      <div class="taximetro-visor" id="visor">00<span class="dois-pontos">:</span>00</div>
+      <div class="taximetro-legenda"><span class="ligado">Bandeira 1</span><span>em corrida</span></div>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="tela" id="tela">
+    <div class="tela-aviso">
+      <strong>O documentário entra aqui</strong>
+      <p>O vídeo completo será publicado nesta página. O endereço e o QR Code continuam os mesmos.</p>
+    </div>
+  </div>
+  <div class="acoes" id="acoes" hidden>
+    <a class="botao" id="link-video" href="#" target="_blank" rel="noopener">Assistir no YouTube</a>
+    <small>Acesso aberto, sem senha.</small>
+  </div>
+
+  <div class="colunas">
+    <section class="sinopse" aria-labelledby="t-sinopse">
+      <h2 id="t-sinopse">Sobre o filme</h2>
+      <p>Dentro do carro, motorista e passageiro dividem o mesmo espaço e, muitas vezes, não trocam uma palavra. Este documentário faz o caminho contrário: transforma a corrida em conversa.</p>
+      <p>Ao longo de cerca de dez viagens pela cidade, taxistas e motoristas de aplicativo contam de onde vieram, o que a profissão lhes ensinou e quais passageiros nunca esqueceram. Ao final de cada trajeto, cada um leva a câmera até o seu lugar favorito em São Paulo.</p>
+      <p>Inspirado no trabalho de Kareem Rahma em Nova York e na escuta de Eduardo Coutinho, o filme adota o modo participativo: quem entrevista também conversa, pergunta, responde e se envolve.</p>
+    </section>
+
+    <aside class="ficha" aria-labelledby="t-ficha">
+      <h2 id="t-ficha">Ficha</h2>
+      <dl>
+        <dt>Direção, roteiro e entrevistas</dt>
+        <dd>Enrico Fini Bastos e Souza</dd>
+        <dt>Orientação</dt>
+        <dd>Prof. Dr. Manoel Roberto Nascimento de Lima</dd>
+        <dt>Curso</dt>
+        <dd>Jornalismo, Centro de Comunicação e Letras, Universidade Presbiteriana Mackenzie</dd>
+        <dt>Local e ano</dt>
+        <dd>São Paulo, 2026</dd>
+      </dl>
+    </aside>
+  </div>
+</main>
+
+<footer>
+  <p>Este Trabalho de Conclusão de Curso não reflete a opinião da Universidade Presbiteriana Mackenzie. Seu conteúdo e abordagem são de total responsabilidade de seu autor.</p>
+</footer>
+
+<script>
+  // Cole aqui o link do vídeo (YouTube ou Vimeo). Vazio = mostra o aviso.
+  const VIDEO_URL = "";
+
+  function embedDe(url) {
+    try {
+      const u = new URL(url);
+      if (u.hostname.includes("youtu.be")) return "https://www.youtube-nocookie.com/embed/" + u.pathname.slice(1);
+      if (u.hostname.includes("youtube.com")) {
+        const id = u.searchParams.get("v") || u.pathname.split("/").pop();
+        return "https://www.youtube-nocookie.com/embed/" + id;
+      }
+      if (u.hostname.includes("vimeo.com")) return "https://player.vimeo.com/video/" + u.pathname.split("/").filter(Boolean).pop();
+    } catch (e) {}
+    return null;
+  }
+
+  if (VIDEO_URL) {
+    const tela = document.getElementById("tela");
+    const emb = embedDe(VIDEO_URL);
+    if (emb) {
+      tela.innerHTML = '<iframe src="' + emb + '" title="Histórias e Vivências de Motoristas em São Paulo" allow="fullscreen; picture-in-picture" allowfullscreen></iframe>';
+    }
+    const link = document.getElementById("link-video");
+    link.href = VIDEO_URL;
+    if (VIDEO_URL.includes("vimeo")) link.textContent = "Assistir no Vimeo";
+    document.getElementById("acoes").hidden = false;
+  }
+
+  // taxímetro: conta o tempo desde que a página foi aberta
+  const visor = document.getElementById("visor");
+  const inicio = Date.now();
+  setInterval(() => {
+    const s = Math.floor((Date.now() - inicio) / 1000);
+    const mm = String(Math.floor(s / 60) % 100).padStart(2, "0");
+    const ss = String(s % 60).padStart(2, "0");
+    visor.innerHTML = mm + '<span class="dois-pontos">:</span>' + ss;
+  }, 1000);
+</script>
+</body>
+</html>
